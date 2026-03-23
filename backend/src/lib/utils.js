@@ -3,7 +3,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const generateToken=(userId,res)=>{
-    const token=jwt.sign({userId:userId},process.env.jWt_SECRET,{
+    const{jWT_SECRET}=process.env;
+    if(!jWT_SECRET){
+        throw new Error("JWT_SECRET is not configured");
+    }
+
+
+    const token=jwt.sign({userId:userId},JWT_SECRET,{
         expiresIn:"7d"
     });
 
