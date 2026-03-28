@@ -9,6 +9,9 @@ export const ENV = {
   CLIENT_URL: process.env.CLIENT_URL,
   RESEND_API_KEY: process.env.RESEND_API_KEY,
   EMAIL_FROM: process.env.EMAIL_FROM,
+  CLOUDINARY_CLOUD_NAME:process.env.CLOUDINARY_CLOUD_NAME,
+CLOUDINARY_API_KEY:process.env.CLOUDINARY_API_KEY,
+CLOUDINARY_API_SECRET:process.env.CLOUDINARY_API_SECRET
 };
 // MONGO_URI=mongodb+srv://slavanyathiruvaranga_db_user:EWeE7LYfzhDnRuky@cluster0.n8wboa6.mongodb.net/chatbox_db?appName=Cluster0,
 // JWT_SECRET=myjwtsecret
