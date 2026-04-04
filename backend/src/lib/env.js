@@ -11,7 +11,9 @@ export const ENV = {
   EMAIL_FROM: process.env.EMAIL_FROM,
   CLOUDINARY_CLOUD_NAME:process.env.CLOUDINARY_CLOUD_NAME,
 CLOUDINARY_API_KEY:process.env.CLOUDINARY_API_KEY,
-CLOUDINARY_API_SECRET:process.env.CLOUDINARY_API_SECRET
+CLOUDINARY_API_SECRET:process.env.CLOUDINARY_API_SECRET,
+ARCJET_KEY:process.env.ARCJET_KEY,
+ARCJET_ENV:process.env.ARCJET_ENV
 };
 // MONGO_URI=mongodb+srv://slavanyathiruvaranga_db_user:EWeE7LYfzhDnRuky@cluster0.n8wboa6.mongodb.net/chatbox_db?appName=Cluster0,
 // JWT_SECRET=myjwtsecret
