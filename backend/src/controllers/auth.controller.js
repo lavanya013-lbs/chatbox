@@ -50,7 +50,7 @@ export const signup= async(req,res)=>{
                 _id:newUser._id,
                 fullName:newUser.fullName,
                 email:newUser.email,
-                profilePic:newUser.profilePic
+                profilePic:newUser.profilepic
 
             });
 
