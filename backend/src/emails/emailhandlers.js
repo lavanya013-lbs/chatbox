@@ -7,7 +7,7 @@ export const sendwelcomeemail=async(email,name,clientURL)=>{
         from: `${ENV.EMAIL_FROM_NAME} <${ENV.EMAIL_FROM}>`,
         to:email,
         subject:"welcome to chatbox",
-        html:createWelcomeEmailTemplate(name,CLIENT_URL)
+        html:createWelcomeEmailTemplate(name,clientURL)
     });
     if(error){
         console.error("error sending welcome email:",error);
