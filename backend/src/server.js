@@ -15,7 +15,7 @@ import { connectDB } from './lib/db.js';
 // import dotenv from "dotenv";
 // dotenv.config();
 // import { ENV } from "../env.js";
-
+import cors from "cors"
 
 const app=express();
 const __dirname=path.resolve();
@@ -23,6 +23,7 @@ const __dirname=path.resolve();
 const PORT=ENV.PORT ||3000 ;
 
 app.use(express.json());
+app.use(cors({origin:ENV.CLIENT_URL,credentials:true}))
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
