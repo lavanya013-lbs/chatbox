@@ -5,7 +5,7 @@ import { MessageCircleIcon,MailIcon,LoaderIcon, LockIcon } from 'lucide-react'
 import {Link} from 'react-router';
 function LoginPage() {
 const [formData,setFormData]=useState({email:"",password:""}) 
-    const {login,islogginIn}=useAuthStore()
+    const {login,isloggingIn}=useAuthStore()
     
     const handleSubmit=(e)=>{
       e.preventDefault();
@@ -57,9 +57,9 @@ const [formData,setFormData]=useState({email:"",password:""})
                 </div>
               
               {/* submit button */}
-              <button className='auth-btn' type='submit' disabled={islogginIn
+              <button className='auth-btn' type='submit' disabled={isloggingIn
               }>
-                {islogginIn ?(
+                {isloggingIn ?(
                   <LoaderIcon className='w-full h-5 animate-spin text-center' />
                 ):(
                   'Sign In'
