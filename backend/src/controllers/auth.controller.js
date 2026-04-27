@@ -50,7 +50,7 @@ export const signup= async(req,res)=>{
                 _id:newUser._id,
                 fullName:newUser.fullName,
                 email:newUser.email,
-                profilePic:newUser.profilepic
+                profilepic:newUser.profilepic
 
             });
 
@@ -92,7 +92,7 @@ export const login=async(req,res)=>{
             _id:user._id,
             fullName:user.fullName,
             email:user.email,
-            profilePic:user.profilepic
+            profilepic:user.profilepic
         })
         }
     catch(error){
@@ -110,12 +110,13 @@ export const logout=async(_,res)=>{
 
 export const updateprofile=async(req,res)=>{
     try{
-        const {profilePic}=req.body;
-        if(!profilePic) return res.status(400).json({message:"profile pic is required"})
+        const {profilepic}=req.body;
+        console.log("Incoming profilePic:", profilepic);
+        if(!profilepic) return res.status(400).json({message:"profile pic is required"})
             
         const userId=req.user._id
-        const uploadresponse=await cloudinary.uploader(profilePic)
-        const updateUser=await User.findByIdAndUpdate(User,{profilePic:uploadresponse.secure_url},{new:true})
+        const uploadresponse=await cloudinary.uploader.upload(profilepic)
+        const updateUser=await User.findByIdAndUpdate(userId,{profilepic:uploadresponse.secure_url},{new:true})
 
         res.status(200).json(updateUser)
     }
