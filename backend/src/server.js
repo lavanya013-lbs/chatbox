@@ -16,8 +16,8 @@ import { connectDB } from './lib/db.js';
 // dotenv.config();
 // import { ENV } from "../env.js";
 import cors from "cors"
+import { app, server } from "./lib/socket.js";
 
-const app=express();
 const __dirname=path.resolve();
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
@@ -36,15 +36,15 @@ app.use('/api/message',messageRoutes)
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  // app.get("*", (_, res) => {
-  //   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-  // });
+  app.get("*", (_, res) => {
+    res.sendFile(path.join(__dirname, "../frontend","dist","index.html"));
+  });
 }
 
 
 
 
-app.listen(PORT,()=> {
+server.listen(PORT,()=> {
     console.log("server is running in port " + PORT)
-    connectDB() 
+    connectDB() ;
 })
