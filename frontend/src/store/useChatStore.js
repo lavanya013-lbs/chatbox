@@ -100,7 +100,7 @@ export const useChatStore=create((set,get)=>({
 
 
             const currentMessages =get().message;
-            set({message:[currentMessages,newMessage] });
+            set({message:[...currentMessages,newMessage] });
 
             if(isSoundEnabled){
                 notificationSound.currentTime=0;
